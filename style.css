@@ -1,0 +1,113 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-color: #ffffff;
+    --accent-green: #2ecc71;
+    --accent-red: #e74c3c;
+    --btn-hover: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.app-container {
+    width: 90%;
+    max-width: 600px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    text-align: center;
+}
+
+/* Screen Management */
+.screen { display: none; }
+.screen.active { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Typography & Buttons */
+h1 { margin-bottom: 1rem; font-size: 2.5rem; }
+h2 { margin-bottom: 1.5rem; font-size: 1.2rem; }
+
+.btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover { background: var(--btn-hover); transform: scale(1.05); }
+
+/* Quiz Specifics */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    width: 100%;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option-btn:hover:not([disabled]) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Feedback States */
+.correct { background: var(--accent-green) !important; border-color: var(--accent-green); }
+.incorrect { background: var(--accent-red) !important; border-color: var(--accent-red); }
+
+/* Review Section */
+.review-container {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 1rem;
+    text-align: left;
+}
+.review-item {
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+.review-q { font-weight: bold; margin-bottom: 5px; }
+.review-ans { font-size: 0.85rem; opacity: 0.8; }
+.text-green { color: var(--accent-green); }
+.text-red { color: var(--accent-red); }
